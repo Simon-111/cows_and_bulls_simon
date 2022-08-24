@@ -167,8 +167,8 @@ def report_results(cows_in_guess, bulls_in_guess):
     print(f'Cows = {cows_in_guess}, Bulls = {bulls_in_guess}')
 
 
-
 def code_is_broken(cracked_code):
+    """Function prints message when player wins
+    """
     print("Congratulations! You've cracked the code!")
     print(f'The secret code was {cracked_code}')
-

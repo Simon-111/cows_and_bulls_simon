@@ -82,9 +82,6 @@ def test_valid_input_six_long():
     assert validate_guess_input('123456', 6) is True
 
 
-
-
-
 # testing for count_cows function
 
 
@@ -125,4 +122,3 @@ def test_two_bulls_two_cows():
 
 def test_four_bulls():
     assert count_bulls('5978', '5978') == 4
-
