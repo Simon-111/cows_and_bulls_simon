@@ -46,7 +46,7 @@ def opening_message():
     """Function does not take or return anything
     prints message to explain the game
     """
-    print("     ---Welcome to Cows and Bulls---", end='\n\n')
+    print("\n     ---Welcome to Cows and Bulls---", end='\n\n')
     print("- Try to break the secret code")
     print('- If you guess a number that is in the code but not in the correct position')
     print('  it will be counted as a cow.')
@@ -64,7 +64,7 @@ def set_code_length():
         length_code = input('How many digits do you want in the code (2-9): ')
         if validate_setup_input(length_code):  # func returns True for valid input else returns False
             break
-    return length_code
+    return int(length_code)
 
 
 def validate_setup_input(user_input):
@@ -123,6 +123,14 @@ def validate_guess_input(guess_to_check, code_length):
     check_guess = False  # assume guess is invalid until proven otherwise
     if len({*guess_to_check}) == code_length and guess_to_check.isdigit():
         check_guess = True
+    elif not guess_to_check.isdigit():  # print message if guess contains non digits
+        print('Invalid guess {guess_to_check}! Guess must be numbers only')
+    elif len([*guess_to_check]) != code_length:  # print message if code is the wrong length
+        print('Invalid guess!')
+        print(f"You're guess was {len([*guess_to_check])} digits but the code in {code_length} digits")
+    elif len({*guess_to_check}) != code_length:  # print message if guess has repeated numbers
+        print(f'Invalid guess {guess_to_check}! Cannot repeat numbers')
+
     return check_guess
 
 
